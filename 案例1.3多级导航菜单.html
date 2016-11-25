@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多级导航菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .main-menu{
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            float: left;
+            margin-right: 5px;
+        }
+        #menum li{
+            width: 120px;
+            height: 30px;
+            background: #bbbbbb;
+        }
+        #menu a{
+            width: 120px;
+            height: 30px;
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            color: #ff0000;
+        }
+        .clear-margin{
+            margin-right: 0px;
+        }
+        .main-menu li{
+            background: #dddddd;
+            border-bottom: 1px dashed #000;
+        }
+        .main-menu a:hover{
+            background: #eeeeee;
+        }
+        .main-menu ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <a href="#">link1</a>
+        <ul>
+            <li><a href="#">submenu1</a></li>
+            <li><a href="#">submenu2</a></li>
+            <li><a href="#">submenu3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#">link2</a>
+        <ul>
+            <li><a href="#">submenu1</a></li>
+            <li><a href="#">submenu2</a></li>
+            <li><a href="#">submenu3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#">link3</a>
+        <ul>
+            <li><a href="#">submenu1</a></li>
+            <li><a href="#">submenu2</a></li>
+            <li><a href="#">submenu3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oMenu = document.getElementById("menu");
+    var aLi = oMenu.getElementsByTagName("li");
+    for(var i=0; i<aLi.length; i++){
+        if(aLi[i].className == "main-menu"){
+            aLi[i].onmouseover = function(){
+                var oSubMenu = this.getElementsByTagName("ul")[0];
+                oSubMenu.style.display = "block";
+            }
+            aLi[i].onmouseout = function(){
+                var oSubMenu = this.getElementsByTagName("ul")[0];
+                oSubMenu.style.display = "none";
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
