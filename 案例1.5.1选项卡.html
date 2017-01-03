@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+        }
+        #main-container li{
+            float: left;
+            width: 120px;
+            height: 30px;
+            background: #bbbbbb;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #content{
+            border-top: solid 1px;
+            background: #eee;
+            height: 270px;
+        }
+        #container ul{
+            overflow: hidden;
+        }
+        #container .selected{
+            background: #444;
+        }
+        #content li{
+            display: none;
+        }
+        #content .xianshi{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="main-container">
+        <li class="selected">111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div id="content">
+        <ul id="main-content">
+            <li class="xianshi">aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+    </div>
+</div>
+<script>
+    var oCon = document.getElementById('main-container');
+    var aLi = oCon.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aLi1 = oContent.getElementsByTagName('li');
+
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+
+            for(var j=0;j<aLi.length;j++){
+                aLi[j].className = '';
+                aLi1[j].className = '';
+            }
+            aLi[this.index].className = "selected";
+            aLi1[this.index].className = "xianshi";
+
+        }
+    }
+</script>
+</body>
+</html>
