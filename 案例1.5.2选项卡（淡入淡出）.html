@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡淡入淡出</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+
+            margin: 50px auto;
+        }
+        #main-container li{
+            float: left;
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #main-container{
+            overflow: hidden;
+        }
+        #content{
+            border-top: solid 1px #000000;
+            width: 400px;
+            height: 270px;
+            background: #eeeeee;
+            position: relative;
+        }
+        #container .bg{
+            background: #000;
+            color: #ffffff;
+        }
+        #content div{
+            background: #eee;
+            position: absolute;
+            width: 400px;
+            height: 270px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="main-container">
+            <li class="bg">001</li>
+            <li>002</li>
+            <li>003</li>
+        </ul>
+        <div id="content">
+            <div>哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+            <div>啦啦啦啦啦啦啦啦啦啦啦</div>
+            <div>嘻嘻嘻嘻嘻嘻嘻嘻嘻</div>
+        </div>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oCon = document.getElementById('container');
+        var aLi = oCon.getElementsByTagName('li');
+        var oContent = document.getElementById('content');
+        var aDiv = oContent.getElementsByTagName('div');
+        for(var i=0;i<aDiv.length;i++){
+            aDiv[i].style.zIndex = aDiv.length-i;
+        }
+        var zIndex = 3;
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function(){
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className = '';
+                }
+                aLi[this.index].className = 'bg';
+                var oDiv = aDiv[this.index];
+                oDiv.style.opacity = 0;
+                oDiv.style.zIndex = ++zIndex;
+                animate(oDiv,{opacity:100});
+            };
+        }
+
+    </script>
+</body>
+</html>
