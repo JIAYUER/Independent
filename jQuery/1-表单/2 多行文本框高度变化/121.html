@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <div class="msg">
+        <span class="bigger">放大</span>
+        <span class="smaller">缩小</span>
+    </div>
+    <div>
+        <textarea name="" id="comment" cols="20" rows="8">哈哈哈哈哈哈哈哈哈和和和和和和和和和哈哈哈哈哈哈哈哈哈和和和和和和和和和哈哈哈哈哈哈哈哈哈哈哈哈哈和和和和和和和和和哈哈哈哈哈哈哈哈哈和和和和和和和和和哈哈哈哈</textarea>
+    </div>
+    <script src="../../jquery-1.12.4.js" ></script>
+    <script>
+        var $comment = $("#comment");
+        $(".bigger").on("click",function(){
+            $comment.height($comment.height()<500?$comment.height()+50:$comment.height());
+        })
+        $(".smaller").on("click",function(){
+            $comment.height($comment.height()>50?$comment.height()-50:$comment.height());
+        })
+    </script>
+</body>
+</html>
